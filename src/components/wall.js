@@ -157,6 +157,14 @@ export const wall = () => {
       console.log(doc.data());
       let pruebaPost = document.createElement("p");
       pruebaPost.textContent = doc.data().contenido;
+      const inputUpdate = document.createElement('input')
+      inputUpdate.setAttribute('value', doc.data().contenido)
+      inputUpdate.setAttribute('style', 'display:none')
+      inputUpdate.id= doc.id
+      const btnUpdate = document.createElement('button')
+      btnUpdate.textContent = 'Guardar'
+      btnUpdate.setAttribute('style', 'display:none')
+      btnUpdate.value= doc.id
       const buttonDeleteIcon = document.createElement("img", "btn");
       const buttonEditIcon = document.createElement("img", "btn");
       const inputComment = document.createElement("input");
@@ -173,7 +181,7 @@ export const wall = () => {
       inputComment.id = "comment";
       inputComment.type = "texto";
       
-      listPost.append(pruebaPost, buttonDeleteIcon, buttonEditIcon)
+      listPost.append(pruebaPost, inputUpdate, btnUpdate, buttonDeleteIcon, buttonEditIcon)
       taskContainer.append(listPost)
     });
     const btnDelete = taskContainer.querySelectorAll(".delete")
@@ -187,9 +195,13 @@ export const wall = () => {
       const btnEdit = taskContainer.querySelectorAll(".edit")
       btnEdit.forEach( (btn) => {
         btn.addEventListener('click', (e)=> {
-          document.getElementById(e.target.dataset.id)
-          
+          document.getElementById(e.target.dataset.id).setAttribute('style', 'display:block')
+          document.querySelector(`button[value = ${e.target.dataset.id}]`).setAttribute('style', 'display:block')
           console.log(e.target.dataset.id);
+          document.querySelector(`button[value = ${e.target.dataset.id}]`).addEventListener('click', ()=>{
+            console.log('Guardando...',document.getElementById(e.target.dataset.id).value);
+          })
+          //updatePost(e.target.dataset.id, textoEditado)
           
         })
       })
@@ -206,18 +218,14 @@ export const wall = () => {
   //   const prueba = posts.forEach((publicacion) => {
   //     const padre = document.createElement("div");
   //     const input = document.createElement("textarea");
-
-
   //     const likeEmptyIconClone = likeEmptyIcon.cloneNode(true);
   //     const likeFullIconClone = likeFullIcon.cloneNode(true);
   //     const commentIconClone = commentIcon.cloneNode(true);
   //     const buttonDeleteIconClone = buttonDeleteIcon.cloneNode(true);
   //     const buttonEditIconClone = buttonEditIcon.cloneNode(true);
-
   //     input.id = "comments";
   //     input.rows = 1; // Valor inicial
   //     padre.id = "padre";
-      
   //     const btnDelete = taskContainer.querySelectorAll(".delete")
   //     btnDelete.forEach(btn => {
   //       btn.addEventListener('click', ({target:{dataset}}) => {
@@ -225,19 +233,14 @@ export const wall = () => {
   //        console.log(dataset.id)
   //       })
   //     })
-
   //     const btnEdit = taskContainer.querySelectorAll(".edit")
   //     btnEdit.forEach( (btn) => {
   //       btn.addEventListener('click', async (e) => {
   //         const doc = await getTask(e.target.dataset.id)
   //         const task = doc.data()
-
   //         inputShowModal['inputComment'].value = task.contenido
   //       })
   //     })
-
-
-
   //     input.value = publicacion;
   //     console.log(publicacion);
   //     let liked = false;
@@ -274,8 +277,5 @@ export const wall = () => {
   //     });
   //   });
   // });
-
-
-
   return div;
 };
