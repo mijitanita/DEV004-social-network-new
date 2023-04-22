@@ -2,7 +2,7 @@ import {
   getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
   signInWithEmailAndPassword, onAuthStateChanged
 } from 'firebase/auth';
-import { collection, addDoc, query, onSnapshot, doc, deleteDoc ,getDoc} from "firebase/firestore";
+import { collection, addDoc, query, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from './firebase';
 import { userData } from '../store/userData.js';
 
@@ -60,8 +60,8 @@ export function post(inputShowModal) {
 
       contenido: inputShowModal,
       autor: autor,
-      email : email,
-      id : id
+      email: email,
+      id: id
 
     });
     //console.log(document)
@@ -71,9 +71,18 @@ export function post(inputShowModal) {
   }
 
 }
-export function getPost(callBack){
+export function getPost(callBack) {
   const consulta = query(collection(db, "Publicaciones"));
   onSnapshot(consulta, callBack)
 }
-export const deletePosta = id => deleteDoc(doc ( db,'Publicaciones',id));
-export const getTask = id => getDoc(doc(db,'Publicaciones',id));
+export const deletePosta = id => deleteDoc(doc(db, 'Publicaciones', id));
+
+
+export async function  editPost(postId, contenido) {
+   const postRef = doc(db, 'Publicaciones', postId);
+  await updateDoc(postRef, {
+    contenido
+  });
+}
+
+
