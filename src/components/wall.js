@@ -77,12 +77,12 @@ export const wall = () => {
   likeFullIcon.src = "./imagenes/likeLleno.png";
   likeFullIcon.alt = "Like2";
   likeFullIcon.style.display = "none";
-  commentIcon.src = "./imagenes/comentario.png";
-  commentIcon.alt = "comentario";
+ // commentIcon.src = "./imagenes/comentario.png";
+  //commentIcon.alt = "comentario";
   buttonxIcon.src = "./imagenes/x.png";
   buttonxIcon.alt = "equis";
-  buttonxIcon2.src = "./imagenes/x.png";
-  buttonxIcon2.alt = "equis";
+ // buttonxIcon2.src = "./imagenes/x.png";
+  //buttonxIcon2.alt = "equis";
 
   inputPost.addEventListener("click", function () {
     dialog.showModal();
@@ -96,21 +96,21 @@ export const wall = () => {
   buttonxIcon.addEventListener("click", function () {
     dialog.close();
   });
-  buttonxIcon2.addEventListener("click", function () {
-    dialogAjustes.close();
-  });
+  //buttonxIcon2.addEventListener("click", function () {
+    //dialogAjustes.close();
+  //});
   buttonSingOff.addEventListener("click", () => {
     onNavigate("/");
   });
   dialog.appendChild(inputShowModal);
   dialog.appendChild(buttonSend);
   dialog.appendChild(buttonxIcon);
-  dialogAjustes.appendChild(buttonsShowModal);
+ // dialogAjustes.appendChild(buttonsShowModal);
 
-  dialogAjustes.appendChild(buttonxIcon2);
+  //dialogAjustes.appendChild(buttonxIcon2);
   div.append(
     dialog,
-    dialogAjustes,
+    //dialogAjustes,
     logo2,
     fondo,
     inputPost,
@@ -157,7 +157,7 @@ export const wall = () => {
       })
     })
 
-    getPost((querySnapshot) => {
+    /getPost((querySnapshot) => {
       const listPost = document.createElement('article')
       listPost.id = "listPost";
       listPost.innerHTML = ''
