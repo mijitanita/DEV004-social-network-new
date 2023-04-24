@@ -215,7 +215,7 @@ h2 {
     border-radius: 10px;
 }
 .buttonSingOff {
-    position: absolute;
+   position: absolute;
     top: 5%;
     left: 68%;
     background: white;
@@ -287,9 +287,6 @@ h2 {
     margin: -4% 25% 30% -22%;
     position: relative;
     top: 30%;
-}
-#listPost{
-
 }
 .inputUpdate{
     background: #F3F1F1;
