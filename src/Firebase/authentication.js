@@ -64,8 +64,6 @@ export function post(inputShowModal) {
       id: id
 
     });
-    //console.log(document)
-    //userData.userName = userCredential.user.displayName;
 
     return document
   }

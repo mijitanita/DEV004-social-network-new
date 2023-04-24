@@ -48,8 +48,7 @@ export const register = () => {
       .then(
       () => {
         onNavigate('/wall');
-      },
-      
+      }, 
     );
 
     inputEmail.after(emailError); // agregar el elemento después del input
