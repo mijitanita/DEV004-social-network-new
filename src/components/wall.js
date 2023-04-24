@@ -4,6 +4,7 @@ import { onNavigate } from "../router.js";
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { userPosts } from "../store/userData.js";
 import { async } from "regenerator-runtime";
+
 let buttonSend = document.createElement("btn");
 let inputShowModal = document.createElement("textarea");
 buttonSend.addEventListener("click", () => {
@@ -19,6 +20,7 @@ buttonSend.addEventListener("click", () => {
   }
   inputShowModal.value = "";
 });
+
 export const wall = () => {
   const div = document.createElement("div");
   const dialog = document.createElement("dialog");
@@ -121,6 +123,12 @@ export const wall = () => {
     buttonSingOff
   );
   getPost((querySnapshot) => {
+    const listPost = document.createElement('article')
+  listPost.id = "listPost";
+  listPost.innerHTML = ''
+   taskContainer.innerHTML = "";
+   const posts = [];
+   
     const listPost = document.createElement('article')
     listPost.innerHTML = ''
     taskContainer.innerHTML = ''

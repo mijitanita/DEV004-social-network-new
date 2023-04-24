@@ -1,9 +1,10 @@
 import { db, auth, getTasks } from "../Firebase/firebase";
-import { post, getPost,deletePosta } from "../Firebase/authentication";
+import { post, getPost,deletePosta, editPost } from "../Firebase/authentication";
 import { onNavigate } from "../router.js";
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { userPosts } from "../store/userData.js";
 import { async } from "regenerator-runtime";
+
 let buttonSend = document.createElement("btn");
 let inputShowModal = document.createElement("textarea");
 buttonSend.addEventListener("click", () => {
@@ -19,6 +20,7 @@ buttonSend.addEventListener("click", () => {
   }
   inputShowModal.value = "";
 });
+
 export const wall = () => {
   const div = document.createElement("div");
   const dialog = document.createElement("dialog");
@@ -26,7 +28,6 @@ export const wall = () => {
   const buttonxIcon2 = document.createElement("img", "btn");
   const dialogAjustes = document.createElement("dialog");
   let inputShowModal = document.createElement("textarea");
-  const adjustmentButtons = document.createElement("img");
   const taskContainer = document.createElement("div");
   const imgUser = document.createElement("img");
   const logo2 = document.createElement("img");
@@ -41,7 +42,6 @@ export const wall = () => {
   inputShowModal.placeholder = "¿ Qué estás pensando ... ?";
   inputPost.placeholder = "¿ Qué estás pensando ... ?";
   inputPost.type = "texto";
-  adjustmentButtons.type = "btn";
   imgUser.type = "img";
   buttonsShowModal.type = "btn";
   buttonxIcon.type = "btn";
@@ -61,20 +61,16 @@ export const wall = () => {
   buttonSend.className = "send";
   buttonxIcon.className = "buttonX";
   buttonxIcon2.className = "buttonX2";
-  adjustmentButtons.className = "adjustmentButtonsIcon";
   buttonsShowModal.className = "ButtonsShowModal";
   likeEmptyIcon.className = "likeEmptyIcon";
   likeFullIcon.className = "likeFullIcon";
   commentIcon.className = "iconComment";
   buttonSingOff.className = "buttonSingOff";
-  adjustmentButtons.className = "adjustmentButtonsIcon";
   buttonsShowModal.className = "ButtonsShowModal";
   dialogAjustes.className = "dialogAjustes";
   //agregado
   imgUser.src = "./imagenes/user.png";
   imgUser.alt = "imgUser";
-  adjustmentButtons.src = "./imagenes/adjustmentButtonsIcon.png";
-  adjustmentButtons.alt = "adjustmentButtons";
   logo2.src = "./imagenes/logo.png";
   logo2.alt = "Logo";
   fondo.src = "./imagenes/fondo-cel.png";
@@ -90,9 +86,7 @@ export const wall = () => {
   buttonxIcon.alt = "equis";
   buttonxIcon2.src = "./imagenes/x.png";
   buttonxIcon2.alt = "equis";
-  adjustmentButtons.addEventListener("click", function () {
-    dialogAjustes.showModal();
-  });
+  
   inputPost.addEventListener("click", function () {
     dialog.showModal();
   });
@@ -124,12 +118,17 @@ export const wall = () => {
     logo2,
     fondo,
     inputPost,
-    adjustmentButtons,
     taskContainer,
     imgUser,
     buttonSingOff
   );
   getPost((querySnapshot) => {
+    const listPost = document.createElement('article')
+  listPost.id = "listPost";
+  listPost.innerHTML = ''
+   taskContainer.innerHTML = "";
+   const posts = [];
+   
     const listPost = document.createElement('article')
     listPost.innerHTML = ''
     taskContainer.innerHTML = ''
@@ -163,10 +162,10 @@ export const wall = () => {
       btnEdit.forEach( (btn) => {
         btn.addEventListener('click',  async(e) => {
           console.log(e.target.dataset.id);
-          const doc = await getTask(e.target.dataset.id)
+          const doc = await getTasks(e.target.dataset.id)
           const task = doc.data()
           //pruebaPost['inputComment'].value = task.contenido
-          pruebaPost(comment.id)
+          editPost(e.target.dataset.id)
         })
       })
 
@@ -178,6 +177,7 @@ export const wall = () => {
   listPost.innerHTML = ''
    taskContainer.innerHTML = "";
    const posts = [];
+
    querySnapshot.forEach((doc) => {
     let pruebaPost = document.createElement("p");
      const posta = doc.data();
@@ -187,10 +187,12 @@ export const wall = () => {
      const inputUpdate = document.createElement('input')
       inputUpdate.setAttribute('value', doc.data().contenido)
       inputUpdate.setAttribute('style', 'display:none')
+      inputUpdate.className= 'inputUpdate';
       inputUpdate.id= doc.id
       const btnUpdate = document.createElement('button')
       btnUpdate.textContent = 'Guardar'
       btnUpdate.setAttribute('style', 'display:none')
+      btnUpdate.className = 'btnUpdate';
       btnUpdate.value= doc.id
 
       
@@ -208,7 +210,44 @@ export const wall = () => {
       buttonEditIcon.alt = "Edit";
       inputComment.id = "comment";
       inputComment.type = "texto";
-      listPost.append(pruebaPost, inputUpdate, btnUpdate, buttonDeleteIcon, buttonEditIcon)
+
+      
+      
+        const input = document.createElement("textarea");
+        const likeEmptyIconClone = likeEmptyIcon.cloneNode(true);
+        const likeFullIconClone = likeFullIcon.cloneNode(true);
+        const commentIconClone = commentIcon.cloneNode(true);
+     
+        input.id = "comments";
+
+          input.value = doc.data().contenido;
+          console.log(doc.data().contenido);
+          let liked = false;
+          likeEmptyIconClone.addEventListener("click", () => {
+            if (!liked) {
+              likeFullIconClone.src = "./imagenes/likeLleno.png";
+              likeFullIconClone.style.display = "block";
+              likeEmptyIconClone.style.display = "none";
+              liked = true;
+              console.log("liked");
+            } else {
+            }
+          });
+   
+   
+          likeFullIconClone.addEventListener("click", () => {
+            if (liked) {
+              likeEmptyIconClone.src = "./imagenes/likeVacio.png";
+              likeEmptyIconClone.style.display = "block";
+              likeFullIconClone.style.display = "none";
+              liked = false;
+              console.log("no liked");
+            } else {
+            }
+          });
+         
+
+      listPost.append(input, likeEmptyIconClone, likeFullIconClone, pruebaPost, inputUpdate, btnUpdate, buttonDeleteIcon, buttonEditIcon)
       taskContainer.append(listPost)
 
    });
@@ -228,63 +267,12 @@ export const wall = () => {
           document.querySelector(`button[value = ${e.target.dataset.id}]`).addEventListener('click', ()=>{
             console.log('Guardando...',document.getElementById(e.target.dataset.id).value);
           })
-          //updatePost(e.target.dataset.id, textoEditado)
+          postRef(e.target.dataset.id, textoEditado)
         })
       })
 
       
-   const prueba = posts.forEach((publicacion) => {
-     const padre = document.createElement("div");
-     const input = document.createElement("textarea");
-     const likeEmptyIconClone = likeEmptyIcon.cloneNode(true);
-     const likeFullIconClone = likeFullIcon.cloneNode(true);
-     const commentIconClone = commentIcon.cloneNode(true);
-  
-     input.id = "comments";
-     input.rows = 1; // Valor inicial
-     padre.id = "padre";
-     
-
-
-
-
-       input.value = publicacion;
-       console.log(publicacion);
-       let liked = false;
-       likeEmptyIconClone.addEventListener("click", () => {
-         if (!liked) {
-           likeFullIconClone.src = "./imagenes/likeLleno.png";
-           likeFullIconClone.style.display = "block";
-           likeEmptyIconClone.style.display = "none";
-           liked = true;
-           console.log("liked");
-         } else {
-         }
-       });
-
-
-       likeFullIconClone.addEventListener("click", () => {
-         if (liked) {
-           likeEmptyIconClone.src = "./imagenes/likeVacio.png";
-           likeEmptyIconClone.style.display = "block";
-           likeFullIconClone.style.display = "none";
-           liked = false;
-           console.log("no liked");
-         } else {
-         }
-       });
-       padre.appendChild(input);
-       padre.appendChild(likeEmptyIconClone);
-       padre.appendChild(likeFullIconClone);
-       padre.appendChild(commentIconClone);
-       padre.appendChild(listPost);
-  
-       taskContainer.appendChild(padre);
-       input.addEventListener("input", () => {  //añadir listener revisarlo al final
-         input.style.height = "auto";
-         /* input.style.height = `${input.scrollHeight}px`; */
-       });
-     });
+   
    });
   })
   return div;
