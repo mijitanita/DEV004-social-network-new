@@ -69,7 +69,6 @@ export const wall = () => {
   buttonxIcon.alt = "equis";
   buttonxIcon2.src = "./imagenes/x.png";
   buttonxIcon2.alt = "equis";
-  
   getPost((querySnapshot) => {
     const listPost = document.createElement('article')
     listPost.innerHTML = ''
@@ -136,7 +135,8 @@ export const wall = () => {
       taskContainer.append(listPost)
       const btnEdit = document.getElementById("edit" + doc.id);
       btnEdit.addEventListener('click', (e) => {
-        const textoEditado = document.getElementById("comments").value;
+        // const textoEditado = document.getElementById("comments").value;
+        const textoEditado = input.value;
         console.log('Guardando...', textoEditado);
         editPost(e.target.dataset.id, textoEditado)
       })
@@ -147,7 +147,9 @@ export const wall = () => {
         deletePosta(dataset.id)
       })
     })
+
   });
+
   buttonSend.addEventListener("click", () => {
     post(inputShowModal.value).then((response) => {
       return response;
@@ -164,9 +166,11 @@ export const wall = () => {
     }
     inputShowModal.value = "";
   });
+
   inputPost.addEventListener("click", function () {
     dialog.showModal();
-  });
+  }); 
+
   buttonxIcon.addEventListener("click", function () {
     dialog.close();
   });
@@ -176,6 +180,8 @@ export const wall = () => {
   buttonSingOff.addEventListener("click", () => {
     onNavigate("/");
   });
+  
+  
   dialog.appendChild(inputShowModal);
   dialog.appendChild(buttonSend);
   dialog.appendChild(buttonxIcon);
