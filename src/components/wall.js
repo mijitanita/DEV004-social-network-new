@@ -1,5 +1,6 @@
 import { post, getPost, deletePosta, editPost } from "../Firebase/authentication";
 import { onNavigate } from "../router.js";
+
 export const wall = () => {
   const buttonSend = document.createElement("btn");
   const inputShowModal = document.createElement("textarea");
@@ -18,13 +19,16 @@ export const wall = () => {
   const buttonSingOff = document.createElement("btn");
   let buttonsShowModal = document.createElement("img", "btn");
   let inputPost = document.createElement("input");
+
   inputShowModal.placeholder = "¿ Qué estás pensando ... ?";
   inputPost.placeholder = "¿ Qué estás pensando ... ?";
+
   inputPost.type = "texto";
   imgUser.type = "img";
   buttonsShowModal.type = "btn";
   buttonxIcon.type = "btn";
   buttonxIcon2.type = "btn";
+
   fondo.id = "fondo";
   div.id = "section";
   logo2.id = "logo2";
@@ -33,18 +37,21 @@ export const wall = () => {
   inputPost.id = "post";
   imgUser.id = "imgUser";
   taskContainer.id = "taskContainer";
+
   buttonSend.textContent = "SEND";
   buttonSingOff.textContent = "Cerrar Sesión";
+
   buttonSend.className = "send";
   buttonxIcon.className = "buttonX";
   buttonxIcon2.className = "buttonX2";
-  buttonsShowModal.className = "ButtonsShowModal";
+ // buttonsShowModal.className = "ButtonsShowModal";
   likeEmptyIcon.className = "likeEmptyIcon";
   likeFullIcon.className = "likeFullIcon";
   commentIcon.className = "iconComment";
   buttonSingOff.className = "buttonSingOff";
   buttonsShowModal.className = "ButtonsShowModal";
   dialogAjustes.className = "dialogAjustes";
+
   imgUser.src = "./imagenes/user.png";
   imgUser.alt = "imgUser";
   logo2.src = "./imagenes/logo.png";
@@ -62,6 +69,7 @@ export const wall = () => {
   buttonxIcon.alt = "equis";
   buttonxIcon2.src = "./imagenes/x.png";
   buttonxIcon2.alt = "equis";
+  
   getPost((querySnapshot) => {
     const listPost = document.createElement('article')
     listPost.innerHTML = ''
