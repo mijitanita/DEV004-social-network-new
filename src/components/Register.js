@@ -4,7 +4,7 @@ import { onNavigate } from '../router.js';
 
 export const register = () => {
   const div = document.createElement('div');
-  const logo = document.createElement('img');
+  const logoreg = document.createElement('img');
   const fondo = document.createElement('img');
   const title = document.createElement('h2');
   const buttonRegister = document.createElement('button');
@@ -21,6 +21,7 @@ export const register = () => {
 
   div.id = 'section';
   fondo.id = 'fondo';
+  logoreg.id = 'logoreg';
   emailError.id = 'email-error'; 
 
   buttonRegister.className = 'buttonRegister';
@@ -30,8 +31,8 @@ export const register = () => {
  
   buttonRegister.textContent = 'REGISTER';
 
-  logo.src = './imagenes/logo.png';
-  logo.alt = 'Logo';
+  logoreg.src = './imagenes/logo.png';
+  logoreg.alt = 'Logo';
 
   fondo.src = './imagenes/fondo-cel.png';
   fondo.alt = 'Fondo';
@@ -58,7 +59,7 @@ export const register = () => {
 
   div.append(
     title,
-    logo,
+    logoreg,
     fondo,
     inputCreate,
     inputEmail,
