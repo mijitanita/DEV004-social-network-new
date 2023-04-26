@@ -24,11 +24,11 @@ jest.mock('../src/Firebase/authentication.js', ()=>({
       //preparamos el mock
       //signInWithEmailAndPassword.mockResolvedValueOnce({ user: { email: 'd@gmail.com' } })
 
-      const divLogin = welcome();
+      const mainLogin = welcome();
 
-      divLogin.querySelector('#username').value = 'd@gmail.com';
-      divLogin.querySelector('#password').value = '123456';  
-      divLogin.querySelector('.buttonGetinto').click();
+      mainLogin.querySelector('#username').value = 'd@gmail.com';
+      mainLogin.querySelector('#password').value = '123456';  
+      mainLogin.querySelector('.buttonGetinto').click();
 
       setTimeout(() => {
         expect(router.onNavigate).toHaveBeenCalledWith('/wall');

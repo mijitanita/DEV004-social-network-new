@@ -321,9 +321,9 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   (ES6+), HTML y CSS :smiley:. Para este proyecto **no está permitido** utilizar
   _frameworks_ o librerías de CSS y JS.
 
-* La división y organización del trabajo debe permitir, sin excepciones, que
+* La mainisión y organización del trabajo debe permitir, sin excepciones, que
   **cada integrante** del equipo practique el aprendizaje de todo lo involucrado
-  en **cada historia**. _No se dividan el trabajo como en una fábrica._
+  en **cada historia**. _No se mainidan el trabajo como en una fábrica._
   - ¿Hasta acá has avanzado en tus proyectos con cierta fluidez y sin mayores
     problemas? Sé generosa con tus compañeras, permíteles aprender y practicar
     sin restricciones, aunque tome un poco más de tiempo. Aproveha de
@@ -520,7 +520,7 @@ pantalla y entorno móvil.
 
 En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
 sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
+necesidad de tener que mainidir nuestra interfaz en varias _vistas_ o _páginas_
 y ofrecer una manera de navegar entre estas vistas. Este problema se puede
 afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
 URL) y links tradicionales, manteniendo estado en memoria y rederizando

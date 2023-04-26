@@ -17774,7 +17774,7 @@ async function editPost(postId, contenido) {
   });
 }
 const welcome = () => {
-  const div = document.createElement("div");
+  const main = document.createElement("main");
   const logo = document.createElement("img");
   const fondo = document.createElement("img");
   const title = document.createElement("h2");
@@ -17792,7 +17792,7 @@ const welcome = () => {
   inputPassword.placeholder = "password";
   logo.id = "logo";
   fondo.id = "fondo";
-  div.id = "section";
+  main.id = "section";
   inputPassword.id = "password";
   inputUsername.id = "username";
   title.className = "title";
@@ -17830,7 +17830,7 @@ const welcome = () => {
       onNavigate("/wall");
     });
   });
-  div.append(
+  main.append(
     title,
     logo,
     fondo,
@@ -17841,17 +17841,17 @@ const welcome = () => {
     buttonGoogle,
     buttonCreate
   );
-  return div;
+  return main;
 };
 const wall = () => {
   const buttonSend = document.createElement("btn");
   const inputShowModal = document.createElement("textarea");
-  const div = document.createElement("div");
+  const main = document.createElement("main");
   const dialog = document.createElement("dialog");
   const buttonxIcon = document.createElement("img", "btn");
   const buttonxIcon2 = document.createElement("img", "btn");
   const dialogAjustes = document.createElement("dialog");
-  const taskContainer = document.createElement("div");
+  const taskContainer = document.createElement("main");
   const imgUser = document.createElement("img");
   const logo2 = document.createElement("img");
   const fondo = document.createElement("img");
@@ -17869,7 +17869,7 @@ const wall = () => {
   buttonxIcon.type = "btn";
   buttonxIcon2.type = "btn";
   fondo.id = "fondo";
-  div.id = "section";
+  main.id = "section";
   logo2.id = "logo2";
   dialog.id = "dialog";
   inputShowModal.id = "ShowModal";
@@ -18023,7 +18023,7 @@ const wall = () => {
   dialog.appendChild(buttonxIcon);
   dialogAjustes.appendChild(buttonsShowModal);
   dialogAjustes.appendChild(buttonxIcon2);
-  div.append(
+  main.append(
     dialog,
     dialogAjustes,
     logo2,
@@ -18033,10 +18033,10 @@ const wall = () => {
     imgUser,
     buttonSingOff
   );
-  return div;
+  return main;
 };
 const register = () => {
-  const div = document.createElement("div");
+  const main = document.createElement("main");
   const logo = document.createElement("img");
   const fondo = document.createElement("img");
   const title = document.createElement("h2");
@@ -18049,7 +18049,7 @@ const register = () => {
   inputPass.placeholder = "password";
   inputCreate.placeholder = "Username";
   inputPass.type = "password";
-  div.id = "section";
+  main.id = "section";
   fondo.id = "fondo";
   emailError.id = "email-error";
   buttonRegister.className = "buttonRegister";
@@ -18077,7 +18077,7 @@ const register = () => {
     inputEmail.after(emailError);
     emailError.style.display = "none";
   });
-  div.append(
+  main.append(
     title,
     logo,
     fondo,
@@ -18086,7 +18086,7 @@ const register = () => {
     inputPass,
     buttonRegister
   );
-  return div;
+  return main;
 };
 const ROUTES = {
   "/": welcome,

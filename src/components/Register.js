@@ -3,7 +3,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import { onNavigate } from '../router.js';
 
 export const register = () => {
-  const div = document.createElement('div');
+  const main = document.createElement('main');
   const logoreg = document.createElement('img');
   const fondo = document.createElement('img');
   const title = document.createElement('h2');
@@ -19,7 +19,7 @@ export const register = () => {
 
   inputPass.type = 'password';
 
-  div.id = 'section';
+  main.id = 'section';
   fondo.id = 'fondo';
   logoreg.id = 'logoreg';
   emailError.id = 'email-error'; 
@@ -57,7 +57,7 @@ export const register = () => {
     emailError.style.display = 'none'; // ocultar el mensaje por defecto
   });
 
-  div.append(
+  main.append(
     title,
     logoreg,
     fondo,
@@ -67,5 +67,5 @@ export const register = () => {
     buttonRegister,
   );
 
-  return div;
+  return main;
 };
