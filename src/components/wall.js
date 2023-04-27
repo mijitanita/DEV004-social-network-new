@@ -4,12 +4,12 @@ import { onNavigate } from "../router.js";
 export const wall = () => {
   const buttonSend = document.createElement("btn");
   const inputShowModal = document.createElement("textarea");
-  const main = document.createElement("main");
+  const div = document.createElement("div");
   const dialog = document.createElement("dialog");
   const buttonxIcon = document.createElement("img", "btn");
   const buttonxIcon2 = document.createElement("img", "btn");
   const dialogAjustes = document.createElement("dialog");
-  const taskContainer = document.createElement("main");
+  const taskContainer = document.createElement("div");
   const imgUser = document.createElement("img");
   const logo2 = document.createElement("img");
   const fondo = document.createElement("img");
@@ -30,7 +30,7 @@ export const wall = () => {
   buttonxIcon2.type = "btn";
 
   fondo.id = "fondo";
-  main.id = "section";
+  div.id = "section";
   logo2.id = "logo2";
   dialog.id = "dialog";
   inputShowModal.id = "ShowModal";
@@ -187,7 +187,7 @@ export const wall = () => {
   dialog.appendChild(buttonxIcon);
   dialogAjustes.appendChild(buttonsShowModal);
   dialogAjustes.appendChild(buttonxIcon2);
-  main.append(
+  div.append(
     dialog,
     dialogAjustes,
     logo2,
@@ -197,7 +197,7 @@ export const wall = () => {
     imgUser,
     buttonSingOff
   );
-  return main;
+  return div;
 };
 
 
