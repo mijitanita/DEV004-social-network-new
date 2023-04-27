@@ -1,5 +1,6 @@
 import { post, getPost, deletePosta, editPost } from "../Firebase/authentication";
 import { onNavigate } from "../router.js";
+import buttonEditIconImg from '../imagenes/buttonEditIcon.png'
 
 export const wall = () => {
   const buttonSend = document.createElement("btn");
@@ -98,7 +99,8 @@ export const wall = () => {
       buttonDeleteIcon.src = "./imagenes/buttonDeleteIcon.png";
       buttonDeleteIcon.alt = "Delete";
       buttonDeleteIcon.className = "delete";
-      buttonEditIcon.src = "./imagenes/buttonEditIcon.png";
+      // buttonEditIcon.src = "./imagenes/buttonEditIcon.png";
+      buttonEditIcon.src = buttonEditIconImg;
       buttonEditIcon.alt = "Edit";
       inputComment.id = "comment";
       inputComment.type = "texto";

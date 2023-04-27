@@ -9,4 +9,7 @@ module.exports = {
   transform: {
     "^.+\\.js$": "babel-jest",
   },
+  moduleNameMapper: {"\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/config/jest/fileMock.js"
+    
+  }
 };
