@@ -3,10 +3,15 @@ import {
    loginWithEmailAndPassword,
 } from '../Firebase/authentication.js';
 import { onNavigate } from '../router.js';
-import {userData} from '../store/userData.js'
+import {userData} from '../store/userData.js';
+import logoImg from '../imagenes/logo.png';
+import fondoImg from '../imagenes/fondo-cel.png';
+import lineImg from  '../imagenes/rayita2-05.png';
+import  buttonGoogleImg from '../imagenes/buttonGoogle.png';
+
 
 export const welcome = () => {
-  const main = document.createElement('main');
+  const div = document.createElement('div');
   const logo = document.createElement('img');
   const fondo = document.createElement('img');
   const title = document.createElement('h2');
@@ -28,7 +33,7 @@ export const welcome = () => {
   
   logo.id = 'logo';
   fondo.id = 'fondo';
-  main.id = 'section';
+  div.id = 'section';
   inputPassword.id = 'password';
   inputUsername.id = 'username';
   
@@ -42,16 +47,16 @@ export const welcome = () => {
   buttonGetinto.textContent = 'LOGIN';
   buttonCreate.textContent = 'CREATE ACCOUNT';
 
-  logo.src = './imagenes/logo.png';
+  logo.src = logoImg;
   logo.alt = 'Logo';
 
-  fondo.src = './imagenes/fondo-cel.png';
+  fondo.src = fondoImg;
   fondo.alt = 'Fondo';
 
-  line.src = './imagenes/rayita2-05.png';
+  line.src = lineImg;
   line.alt = 'line';
 
-  buttonGoogle.src = './imagenes/buttonGoogle.png';
+  buttonGoogle.src = buttonGoogleImg;
   buttonGoogle.alt = 'buttonGoogle';
 
   buttonGetinto.addEventListener('click', () => {
@@ -78,7 +83,7 @@ export const welcome = () => {
   });
   
 
-  main.append(
+  div.append(
     title,
     logo,
     fondo,
@@ -90,5 +95,5 @@ export const welcome = () => {
     buttonCreate,
   );
 
-  return main;
+  return div;
 };
