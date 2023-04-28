@@ -1,6 +1,13 @@
 import { post, getPost, deletePosta, editPost } from "../Firebase/authentication";
 import { onNavigate } from "../router.js";
-import buttonEditIconImg from '../imagenes/buttonEditIcon.png'
+import buttonEditIconImg from '../imagenes/buttonEditIcon.png';
+import buttonDeleteIconImg from '../imagenes/eliminar.png'
+import buttonxIconImg from "../imagenes/x.png";
+import logo2Img from '../imagenes/logo.png';
+import fondoImg from '../imagenes/fondo-cel.png';
+import likeEmptyIconImg from "../imagenes/likeVacio.png";
+import likeFullIconImg from "../imagenes/likeLleno.png";
+
 
 export const wall = () => {
   const buttonSend = document.createElement("btn");
@@ -46,16 +53,16 @@ export const wall = () => {
 
   imgUser.src = "./imagenes/user.png";
   imgUser.alt = "imgUser";
-  logo2.src = "./imagenes/logo.png";
+  logo2.src = logo2Img;
   logo2.alt = "Logo";
-  fondo.src = "./imagenes/fondo-cel.png";
+  fondo.src = fondoImg;
   fondo.alt = "Fondo";
-  likeEmptyIcon.src = "./imagenes/likeVacio.png";
+  likeEmptyIcon.src = likeEmptyIconImg;
   likeEmptyIcon.alt = "Like1";
-  likeFullIcon.src = "./imagenes/likeLleno.png";
+  likeFullIcon.src = likeFullIconImg;
   likeFullIcon.alt = "Like2";
   likeFullIcon.style.display = "none";
-  buttonxIcon.src = "./imagenes/x.png";
+  buttonxIcon.src = buttonxIconImg;
   buttonxIcon.alt = "equis";
 
   getPost((querySnapshot) => {
@@ -84,7 +91,7 @@ export const wall = () => {
       pruebaPost.id = "comment";
       buttonEditIcon.className = "edit";
       buttonEditIcon.id = "edit" + doc.id;
-      buttonDeleteIcon.src = "./imagenes/buttonDeleteIcon.png";
+      buttonDeleteIcon.src = buttonDeleteIconImg;
       buttonDeleteIcon.alt = "Delete";
       buttonDeleteIcon.className = "delete";
       buttonEditIcon.src = buttonEditIconImg;
@@ -100,7 +107,7 @@ export const wall = () => {
       let liked = false;
       likeEmptyIconClone.addEventListener("click", () => {
         if (!liked) {
-          likeFullIconClone.src = "./imagenes/likeLleno.png";
+          likeFullIconClone.src = likeFullIconImg;
           likeFullIconClone.style.display = "block";
           likeEmptyIconClone.style.display = "none";
           liked = true;
@@ -110,7 +117,7 @@ export const wall = () => {
       });
       likeFullIconClone.addEventListener("click", () => {
         if (liked) {
-          likeEmptyIconClone.src = "./imagenes/likeVacio.png";
+          likeEmptyIconClone.src =likeEmptyIconImg;
           likeEmptyIconClone.style.display = "block";
           likeFullIconClone.style.display = "none";
           liked = false;
