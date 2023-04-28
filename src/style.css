@@ -17,16 +17,6 @@ html {
 #comment{
     display: none;
 }
-.delete{
-    width: 100%;
-    background: none;
-    border: none;
-    color: #EF104C;
-    font-size: initial;
-    /*position: absolute;*/
-    top: 62%;
-    right: 0%;
-}
 #email-error {
     color: red;
 }
@@ -172,21 +162,13 @@ h2 {
     font-weight: bold;
     left: 75%;
 }
-.edit {
-    position: relative;
-    top: 16%;
-    right: 32%;
-    background: none;
-    border: none;
-    font-size: initial;
-    width: 10%;
-    padding: 0% 3% 7% 1%;
-    margin: -17% 1% 9% 1%;
-    z-index: -1;
-}
 .delete {
-    width: 13%;
+    width: 11%;
     margin: -13% -3% 16% 2%;
+}
+.edit {
+    width: 15%;
+    margin: -13% -3% 16% -26%;
 }
 .likeEmptyIcon {
     width: 15%;
@@ -202,13 +184,6 @@ h2 {
     left: 96%;
     display: block;
     margin: -22% 0% 0% 0%;
-}
-
-.iconComment {
-    width: 13%;
-    top: -22.5px;
-    left: 72%;
-    position: relative;
 }
 #post {
     width: 66%;
@@ -256,37 +231,6 @@ h2 {
     position: absolute;
     top: 20%;
     right: 3%;
-}
-.adjustmentButtonsIcon {
-    width: 2%;
-    top: 16%;
-    transform: rotate(90deg);
-    left: 79%;
-    position: absolute;
-}
-.ButtonsShowModal {
-    width: 2%;
-    top: 16%;
-    transform: rotate(90deg);
-    left: 88%;
-}
-.dialogAjustes{
-    width: 64%;
-    height: 15%;
-    border-radius: 10px;
-    border: none;
-    background: #FCF7F7;
-    left: 3%;
-    top: -21%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.buttonX2{
-    width: 5%;
-    left: 91%;
-    position: absolute;
-    top: 7%;
 }
 #comments{
     width: 132%;
