@@ -19,7 +19,7 @@
     "dev": "vite dev src",
     "start": "npm run dev -s",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --port 8080",
     "clear-cache": "rm -rf node_modules/.vite"
   },
   "devDependencies": {
