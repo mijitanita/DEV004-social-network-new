@@ -1,8 +1,6 @@
 import { logincreateUserWithEmailAndPassword} from '../Firebase/authentication.js';
 import { getAuth, updateProfile } from "firebase/auth";
 import { onNavigate } from '../router.js';
-import logoregImg from '../imagenes/logo.png';
-import fondoImg from '../imagenes/fondo-cel.png';
 
 export const register = () => {
   const div = document.createElement('div');
@@ -33,10 +31,10 @@ export const register = () => {
  
   buttonRegister.textContent = 'REGISTER';
 
-  logoreg.src = logoregImg;
+  logoreg.src = './imagenes/logo.png';
   logoreg.alt = 'Logo';
 
-  fondo.src = fondoImg;
+  fondo.src = './imagenes/fondo-cel.png';
   fondo.alt = 'Fondo';
   
   const auth = getAuth();

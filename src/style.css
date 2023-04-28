@@ -225,7 +225,7 @@ h2 {
     top: 5%;
     left: 68%;
     background: white;
-    border: 2px solid #14EDDD;
+    border-color: #14EDDD;
     border-radius: 8px;
     font-weight: bold;
 }

@@ -1,1 +1,1 @@
-module.exports = ""; // agragado con oh J. otar froma de exportar
+module.exports = "";
