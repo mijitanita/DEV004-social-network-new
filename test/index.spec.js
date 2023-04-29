@@ -1,6 +1,6 @@
 import * as router from "../src/router";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { welcome } from '../src/components/welcome';
+import { welcome } from '../src/components/Welcome';
 import {loginWithEmailAndPassword} from '../src/Firebase/authentication.js';
 
 //const mockSignInWithEmailAndPassword =jest.fn();
