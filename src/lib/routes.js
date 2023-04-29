@@ -1,4 +1,4 @@
-import { welcome } from '../components/welcome.js';
+import { welcome } from '../components/welcome';
 import { wall } from '../components/wall.js';
 import { register } from '../components/Register.js';
 

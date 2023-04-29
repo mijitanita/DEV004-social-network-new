@@ -20,7 +20,7 @@ export const logincreateUserWithEmailAndPassword = (email, password) => createUs
   });
 
 export const loginWithEmailAndPassword = (password, email) => signInWithEmailAndPassword(getAuth(), email, password)
-  .then((userCredential) => {
+  /*.then((userCredential) => {
     const user = userCredential.user;
     console.log(user);
   })
@@ -28,7 +28,7 @@ export const loginWithEmailAndPassword = (password, email) => signInWithEmailAnd
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode, errorMessage);
-  });
+  });*/
 export const loginGoogle = () => signInWithPopup(getAuth(), provider)
   .then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
